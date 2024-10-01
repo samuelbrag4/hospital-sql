@@ -1,25 +1,27 @@
+
+
 --20 INSERTS NA TABELA "PACIENTES"
 
-INSERT INTO pacientes (paciente_id, nome_completo, data_nascimento, email, telefone, sexo, sintoma) VALUES
+INSERT INTO pacientes (nome_completo, data_nascimento, email, telefone, sexo, sintoma) VALUES
 ('Giovanna Caron', '2008-04-28', 'giovanna.caron@gmail.com', '11987654321', 'F', 'Gastrite'),
 ('Carlos Silva', '1985-08-15', 'carlos.silva@gmail.com', '11912345678', 'M', 'Diabetes'),
 ('Mariana Oliveira', '1992-12-20', 'mariana.oliveira@gmail.com', '11923456789', 'F', 'Asma'),
 ('Roberto Santos', '1980-03-30', 'roberto.santos@gmail.com', '11934567890', 'M', 'Anemia'),
 ('Juliana Costa', '1975-07-25', 'juliana.costa@gmail.com', '11945678901', 'F', 'Artrite'),
-('Alefe Amaral', '2007-12-26', 'alefe.amaral@gmail.com', '11956789012', 'M', 'Escoliose'),
+('Alefe Amaral', '2007-12-26', 'alefe.amara26@gmail.com', '11956789012', 'M', 'Escoliose'),
 ('Larissa Martins', '1988-04-18', 'larissa.martins@gmail.com', '11967890123', 'F', 'Tendinite'),
 ('Gustavo Lima', '1991-09-22', 'gustavo.lima@gmail.com', '11978901234', 'M', 'Diabetes'),
-('Fernanda Pires', '1983-06-05', 'fernanda.pires@gmail.com', '11989012345', 'F', 'Gastrite'),
+('Fernanda Pires', '1983-06-05', 'fernanda.pires0@gmail.com', '11989012345', 'F', 'Gastrite'),
 ('Tiago Mendes', '1987-11-11', 'tiago.mendes@gmail.com', '11990123456', 'M', 'Febre'),
 ('Patrícia Rocha', '1994-01-29', 'patricia.rocha@gmail.com', '11901234567', 'F', 'Asma'),
-('Daniel Ferreira', '1978-10-04', 'daniel.ferreira@gmail.com', '11912345670', 'M', 'Artrite'),
+('Daniel Ferreira', '1978-10-04', 'daniel.ferreira6@gmail.com', '11912345670', 'M', 'Artrite'),
 ('Tatiane Lima', '1993-03-13', 'tatiane.lima@gmail.com', '11923456781', 'F', 'Pneumonia'),
 ('André Gomes', '1981-12-12', 'andre.gomes@gmail.com', '11934567892', 'M', 'Gastrite'),
 ('Julio César', '1986-05-20', 'julio.cesar@gmail.com', '11945678903', 'M', 'Inflamação no Apêndice'),
-('Flávia Mendes', '2008-03-17', 'flavia.mendes@gmail.com', '11956789014', 'F', 'Hipertensão'),
+('Flávia Mendes', '2008-03-17', 'flavia.mendes1@gmail.com', '11956789014', 'F', 'Hipertensão'),
 ('Marcos Paulo', '1989-04-04', 'marcos.paulo@gmail.com', '11967890125', 'M', 'Anemia'),
 ('Claudia Teixeira', '1991-09-09', 'claudia.teixeira@gmail.com', '11978901236', 'F', 'Asma'),
-('Leonardo Alves', '1984-06-14', 'leonardo.alves@gmail.com', '11989012347', 'M', 'Gastrite'),
+('Leonardo Alves', '1984-06-14', 'leonardo.alves1@gmail.com', '11989012347', 'M', 'Gastrite'),
 ('Vanessa Cruz', '1992-07-22', 'vanessa.cruz@gmail.com', '11990123458', 'F', 'Pneumonia'),
 ('Rafael Dias', '1993-10-17', 'rafael.dias@gmail.com', '11901234568', 'M', 'Inflamação no Apêndice'),
 ('Beatriz Oliveira', '1995-01-01', 'beatriz.oliveira@gmail.com', '11912345679', 'F', 'Asma'),
@@ -41,4 +43,44 @@ INSERT INTO pacientes (paciente_id, nome_completo, data_nascimento, email, telef
 ('Lívia Martins', '1991-05-15', 'liviamartins@gmail.com', '11978901246', 'F', 'Hipertensão'),
 ('Samuel Braga', '2008-06-13', 'samuel.dias@gmail.com', '11989012357', 'M', 'Hemorroida'),
 ('Tânia Ferreira', '1993-09-30', 'tania.ferreira@gmail.com', '11990123468', 'F', 'Asma');
+
+
+-- 12 CONSULTAS SELECT
+
+-- Pacientes que têm Asma como sintoma
+SELECT * FROM pacientes WHERE sintoma = Asma;
+
+-- Pacientes que nasceram em Junho
+SELECT * FROM pacientes WHERE sintoma EXTRACT(MONTH FROM data_nascimento) = 06;
+
+-- Pacientes que têm um nome com mais de 15 caracteres
+SELECT * FROM pacientes WHERE LENGTH(nome_completo) > 15;
+
+-- Pacientes que têm um nome com menos de 12 caracteres
+SELECT * FROM pacientes WHERE LENGTH(nome_completo) < 12;
+
+-- Pacientes que têm o mesmo sobrenome 'Santos'
+SELECT * FROM pacientes WHERE nome_completo LIKE '% Santos';
+
+-- Pacientes que têm o mesmo sobrenome 'Santos'
+SELECT * FROM pacientes WHERE nome_completo LIKE '% Ferreira';
+
+-- Pacientes que nasceram entre 1980 e 1990 
+SELECT * FROM pacientes WHERE YEAR(data_nascimento) BETWEEN 1980 AND 1990;
+
+-- Pacientes cujo nome começa com 'J'
+SELECT * FROM pacientes WHERE nome_completo LIKE 'J%' 
+
+-- Pacientes cujo nome completo não contém a letra 'e'
+SELECT * FROM pacientes WHERE nome_completo NOT LIKE '%e%';
+
+-- Pacientes cujo ID é um número primo
+SELECT * FROM pacientes WHERE paciente_id IN (2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41);
+
+-- Pacientes que nasceram em um dia ímpar
+SELECT * FROM pacientes WHERE EXTRACT(DAY FROM data_nascimento) % 2 = 1;
+
+-- Pacientes com nome que tem um padrão específico (ex: começa com 'G' e termina com 'a')
+SELECT * FROM pacientes WHERE nome_completo LIKE 'G%a';
+
 
