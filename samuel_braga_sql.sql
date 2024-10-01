@@ -108,3 +108,29 @@ UPDATE pacientes SET telefone = '415917402747' WHERE nome_completo = 'Aline Ribe
 UPDATE pacientes SET sintoma = 'Dor muscular' WHERE nome_completo = 'Eduardo Moraes';
 /* 20º Update: Alterar o email de Natália Araújo */
 UPDATE pacientes SET email = 'natalia.araujo.novo@gmail.com' WHERE nome_completo = 'Natália Araújo';
+
+/* 12 exclusões (deletes) */
+/* 1º Exclusão: Excluir pacientes cujos nomes começam com a letra 'I' */
+DELETE FROM pacientes WHERE nome_completo LIKE 'I%';
+/* 2º Exclusão: Excluir pacientes cujos nomes terminam com a letra 'O' */
+DELETE FROM pacientes WHERE nome_completo LIKE '%O';
+/* 3º Exclusão: Excluir o paciente cujo nome completo seja 'João Silva' */
+DELETE FROM pacientes WHERE nome_completo = 'João Silva';
+/* 4º Exclusão: Excluir pacientes cujo nome contenha 'Silva' em qualquer parte */
+DELETE FROM pacientes WHERE nome_completo LIKE '%Silva%';
+/* 5º Exclusão: Excluir pacientes cujos nomes começam com 'T' e que têm o sintoma 'Pressão alta' */
+DELETE FROM pacientes WHERE nome_completo LIKE 'T%' AND sintoma = 'Pressão alta';
+/* 6º Exclusão: Excluir pacientes cujos nomes começam com 'M' ou 'O' */
+DELETE FROM pacientes WHERE nome_completo LIKE 'M%' OR nome_completo LIKE 'O%';
+/* 7º Exclusão: Excluir pacientes cujos nomes tenham exatamente 9 letras */
+DELETE FROM pacientes WHERE LENGTH(nome_completo) = 9;
+/* 8º Exclusão: Excluir pacientes cujos nomes estão entre 'A' e 'C' (alfabeticamente) */
+DELETE FROM pacientes WHERE nome_completo BETWEEN 'L' AND 'Mz';
+/* 9º Exclusão: Excluir pacientes cujos nomes terminam com 'a' e têm o sintoma 'Dor de cabeça' */
+DELETE FROM pacientes WHERE nome_completo LIKE '%a' AND sintoma = 'Dor de cabeça';
+/* 10º Exclusão: Excluir pacientes cujos nomes começam com 'L' e têm o telefone terminado com '9' */
+DELETE FROM pacientes WHERE nome_completo LIKE 'L%' AND telefone LIKE '%9';
+/* 11º Exclusão: Excluir pacientes cujos nomes começam com 'M' e têm o telefone iniciado com '9' */
+DELETE FROM pacientes WHERE nome_completo LIKE 'M%' AND telefone LIKE '8%';
+/* 12º Exclusão: Excluir pacientes com nome 'Paula Vasconcelos' ou 'Roberto Nunes' */
+DELETE FROM pacientes WHERE nome_completo = 'Paula Vasconcelos' OR nome_completo = 'Roberto Nunes';
