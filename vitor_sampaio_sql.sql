@@ -37,5 +37,125 @@ INSERT INTO pacientes (nome_completo, data_nascimento, email, telefone, sexo, si
 ('Pedro Santos', '1984-02-27', 'pedro.santos@email.com', '56999887766', 'M', 'Inchaço abdominal'),
 ('Larissa Almeida', '1996-12-09', 'larissa.almeida@email.com', '66999887766', 'F', 'Dificuldade para dormir');
 
+-- Consultas
+
+-- 1. Selecionar todos os pacientes com sintomas
+SELECT nome_completo, sintoma FROM pacientes;
+
+-- 2. Encontrar pacientes com sintomas que contenham 'falta'
+SELECT * FROM pacientes WHERE sintoma LIKE '%falta%';
+
+-- 3. Listar pacientes que têm telefone com 9 dígitos
+SELECT * FROM pacientes WHERE telefone LIKE '9%';
+
+-- 4. Encontrar pacientes do sexo masculino
+SELECT * FROM pacientes WHERE sexo = 'M';
+
+-- 5. Encontrar pacientes do sexo feminino
+SELECT * FROM pacientes WHERE sexo = 'F';
+
+-- 6. Encontrar pacientes com sintomas que contenham 'dor'
+SELECT * FROM pacientes WHERE sintoma LIKE '%dor%';
+
+-- 7. Listar pacientes que nasceram antes de 2000
+SELECT * FROM pacientes WHERE data_nascimento < '2000-01-01';
+
+-- 8. Encontrar pacientes com idade entre 20 e 30 anos
+SELECT * FROM pacientes WHERE data_nascimento >= '1993-01-01' AND data_nascimento <= '2003-12-31';
+
+-- 9. Selecionar pacientes com o sintoma 'Falta de ar'
+SELECT * FROM pacientes WHERE sintoma = 'Falta de ar';
+
+-- 10. Listar pacientes com e-mail terminando em '@email.com'
+SELECT * FROM pacientes WHERE email LIKE '%@email.com';
+
+-- 11. Encontrar pacientes com telefone começando com '21'
+SELECT * FROM pacientes WHERE telefone LIKE '21%';
+
+-- 12. Selecionar pacientes nascidos em agosto
+SELECT * FROM pacientes WHERE data_nascimento LIKE '____-08-%';
+
+
+-- Atualizar os dados e Consutar os dados
+
+-- 1. Atualizar o telefone do paciente com ID 1
+UPDATE pacientes SET telefone = '1199998888' WHERE paciente_id = 1;
+SELECT * FROM pacientes WHERE paciente_id = 1;
+
+-- 2. Atualizar o e-mail do paciente com ID 2
+UPDATE pacientes SET email = 'maria.nova@email.com' WHERE paciente_id = 2;
+SELECT * FROM pacientes WHERE paciente_id = 2;
+
+-- 3. Atualizar o sintoma do paciente com ID 3
+UPDATE pacientes SET sintoma = 'Dor leve' WHERE paciente_id = 3;
+SELECT * FROM pacientes WHERE paciente_id = 3;
+
+-- 4. Atualizar o nome do paciente com ID 4
+UPDATE pacientes SET nome_completo = 'Ana Beatriz Pereira' WHERE paciente_id = 4;
+SELECT * FROM pacientes WHERE paciente_id = 4;
+
+-- 5. Atualizar a data de nascimento do paciente com ID 5
+UPDATE pacientes SET data_nascimento = '1995-12-25' WHERE paciente_id = 5;
+SELECT * FROM pacientes WHERE paciente_id = 5;
+
+-- 6. Atualizar o sexo do paciente com ID 6
+UPDATE pacientes SET sexo = 'Outro' WHERE paciente_id = 6;
+SELECT * FROM pacientes WHERE paciente_id = 6;
+
+-- 7. Atualizar o sintoma do paciente com ID 7
+UPDATE pacientes SET sintoma = 'Cefaleia' WHERE paciente_id = 7;
+SELECT * FROM pacientes WHERE paciente_id = 7;
+
+-- 8. Atualizar o telefone do paciente com ID 8
+UPDATE pacientes SET telefone = '21998887766' WHERE paciente_id = 8;
+SELECT * FROM pacientes WHERE paciente_id = 8;
+
+-- 9. Atualizar o e-mail do paciente com ID 9
+UPDATE pacientes SET email = 'rafael.martins@novoemail.com' WHERE paciente_id = 9;
+SELECT * FROM pacientes WHERE paciente_id = 9;
+
+-- 10. Atualizar o sintoma do paciente com ID 10
+UPDATE pacientes SET sintoma = 'Fadiga intensa' WHERE paciente_id = 10;
+SELECT * FROM pacientes WHERE paciente_id = 10;
+
+-- 11. Atualizar o nome do paciente com ID 11
+UPDATE pacientes SET nome_completo = 'Fernanda Lima' WHERE paciente_id = 11;
+SELECT * FROM pacientes WHERE paciente_id = 11;
+
+-- 12. Atualizar a data de nascimento do paciente com ID 12
+UPDATE pacientes SET data_nascimento = '1988-03-15' WHERE paciente_id = 12;
+SELECT * FROM pacientes WHERE paciente_id = 12;
+
+-- 13. Atualizar o telefone do paciente com ID 13
+UPDATE pacientes SET telefone = '31987766554' WHERE paciente_id = 13;
+SELECT * FROM pacientes WHERE paciente_id = 13;
+
+-- 14. Atualizar o e-mail do paciente com ID 14
+UPDATE pacientes SET email = 'isabela.mendes@novoemail.com' WHERE paciente_id = 14;
+SELECT * FROM pacientes WHERE paciente_id = 14;
+
+-- 15. Atualizar o sintoma do paciente com ID 15
+UPDATE pacientes SET sintoma = 'Tontura' WHERE paciente_id = 15;
+SELECT * FROM pacientes WHERE paciente_id = 15;
+
+-- 16. Atualizar o nome do paciente com ID 16
+UPDATE pacientes SET nome_completo = 'Gustavo Teixeira' WHERE paciente_id = 16;
+SELECT * FROM pacientes WHERE paciente_id = 16;
+
+-- 17. Atualizar a data de nascimento do paciente com ID 17
+UPDATE pacientes SET data_nascimento = '1990-01-20' WHERE paciente_id = 17;
+SELECT * FROM pacientes WHERE paciente_id = 17;
+
+-- 18. Atualizar o telefone do paciente com ID 18
+UPDATE pacientes SET telefone = '41987654321' WHERE paciente_id = 18;
+SELECT * FROM pacientes WHERE paciente_id = 18;
+
+-- 19. Atualizar o e-mail do paciente com ID 19
+UPDATE pacientes SET email = 'natalia.silva@novoemail.com' WHERE paciente_id = 19;
+SELECT * FROM pacientes WHERE paciente_id = 19;
+
+-- 20. Atualizar o sintoma do paciente com ID 20
+UPDATE pacientes SET sintoma = 'Dor no peito' WHERE paciente_id = 20;
+SELECT * FROM pacientes WHERE paciente_id = 20;
 
 
