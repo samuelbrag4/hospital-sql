@@ -40,3 +40,29 @@ INSERT INTO pacientes (nome_completo, data_nascimento, email, telefone, sexo, si
 ('Renata Silva', '1995-04-04', 'renata.silva@gmail.com', '21987634567', 'F', 'Dor de garganta'),
 ('Alex Dias', '2000-02-20', 'alex.dias@gmail.com', '31987634567', 'M', 'Constipação'),
 ('Mariana Castro', '2003-07-17', 'mariana.castro@gmail.com', '41987634567', 'F', 'Emorroida');
+
+/* 12 Seleções (consultas) */
+-- 1º Seleção: Selecionar todos os pacientes com Perda de apetite
+SELECT * FROM pacientes WHERE sintoma = 'Perda de apetite';
+-- 2º Seleção: Selecionar todos os pacientes com Hemorroida
+SELECT * FROM pacientes WHERE sintoma = 'Hemorróida'; -- Corrigi o nome do sintoma para Hemorroida, caso seja necessário
+-- 3º Seleção: Selecionar todos os pacientes Homens
+SELECT * FROM pacientes WHERE sexo = 'M';
+-- 4º Seleção: Selecionar todos os pacientes Mulheres
+SELECT * FROM pacientes WHERE sexo = 'F';
+-- 5º Seleção: Selecionar todos os pacientes cujo nome começa com E
+SELECT * FROM pacientes WHERE nome_completo LIKE 'E%';
+-- 6º Seleção: Selecionar todos os pacientes cujo nome termina com E
+SELECT * FROM pacientes WHERE nome_completo LIKE '%E';
+-- 7º Seleção: Selecionar todos os pacientes cujo telefone começa com 9
+SELECT * FROM pacientes WHERE telefone LIKE '9%';
+-- 8º Seleção: Selecionar todos os pacientes cujo telefone termina com 7
+SELECT * FROM pacientes WHERE telefone LIKE '%7';
+-- 9º Seleção: Selecionar todos os pacientes que nasceram entre 1900 e 2000
+SELECT * FROM pacientes WHERE data_nascimento BETWEEN '1900-01-01' AND '2000-12-31';
+-- 10º Seleção: Selecionar todos os pacientes com Constipação
+SELECT * FROM pacientes WHERE sintoma = 'Constipação';
+-- 11º Seleção: Selecionar todos os pacientes que nasceram no mês 7
+SELECT * FROM pacientes WHERE MONTH(data_nascimento) = 7;
+-- 12º Seleção: Selecionar todos os pacientes com sobrenome Docente
+SELECT * FROM pacientes WHERE nome_completo LIKE '%Docente';
