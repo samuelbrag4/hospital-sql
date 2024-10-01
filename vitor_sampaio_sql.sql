@@ -158,4 +158,53 @@ SELECT * FROM pacientes WHERE paciente_id = 19;
 UPDATE pacientes SET sintoma = 'Dor no peito' WHERE paciente_id = 20;
 SELECT * FROM pacientes WHERE paciente_id = 20;
 
+-- Delertar os dados e Consultar os dados
+
+-- 1. Excluir o paciente com ID 1
+DELETE FROM pacientes WHERE paciente_id = 1;
+SELECT * FROM pacientes WHERE paciente_id = 1;
+
+-- 2. Excluir o paciente com ID 2
+DELETE FROM pacientes WHERE paciente_id = 2;
+SELECT * FROM pacientes WHERE paciente_id = 2;
+
+-- 3. Excluir o paciente com ID 3
+DELETE FROM pacientes WHERE paciente_id = 3;
+SELECT * FROM pacientes WHERE paciente_id = 3;
+
+-- 4. Excluir o paciente com ID 4
+DELETE FROM pacientes WHERE paciente_id = 4;
+SELECT * FROM pacientes WHERE paciente_id = 4;
+
+-- 5. Excluir o paciente com ID 5
+DELETE FROM pacientes WHERE paciente_id = 5;
+SELECT * FROM pacientes WHERE paciente_id = 5;
+
+-- 6. Excluir o paciente com ID 6
+DELETE FROM pacientes WHERE paciente_id = 6;
+SELECT * FROM pacientes WHERE paciente_id = 6;
+
+-- 7. Excluir o paciente com ID 7
+DELETE FROM pacientes WHERE paciente_id = 7;
+SELECT * FROM pacientes WHERE paciente_id = 7;
+
+-- 8. Excluir o paciente com ID 8
+DELETE FROM pacientes WHERE paciente_id = 8;
+SELECT * FROM pacientes WHERE paciente_id = 8;
+
+-- 9. Excluir o paciente com ID 9
+DELETE FROM pacientes WHERE paciente_id = 9;
+SELECT * FROM pacientes WHERE paciente_id = 9;
+
+-- 10. Excluir o paciente com ID 10
+DELETE FROM pacientes WHERE paciente_id = 10;
+SELECT * FROM pacientes WHERE paciente_id = 10;
+
+-- 11. Excluir o paciente com ID 11
+DELETE FROM pacientes WHERE paciente_id = 11;
+SELECT * FROM pacientes WHERE paciente_id = 11;
+
+-- 12. Excluir o paciente com ID 12
+DELETE FROM pacientes WHERE paciente_id = 12;
+SELECT * FROM pacientes WHERE paciente_id = 12;
 
