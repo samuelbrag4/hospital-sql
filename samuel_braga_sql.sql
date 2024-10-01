@@ -42,27 +42,69 @@ INSERT INTO pacientes (nome_completo, data_nascimento, email, telefone, sexo, si
 ('Mariana Castro', '2003-07-17', 'mariana.castro@gmail.com', '41987634567', 'F', 'Emorroida');
 
 /* 12 Seleções (consultas) */
--- 1º Seleção: Selecionar todos os pacientes com Perda de apetite
+/* 1º Seleção: Selecionar todos os pacientes com Perda de apetite */
 SELECT * FROM pacientes WHERE sintoma = 'Perda de apetite';
--- 2º Seleção: Selecionar todos os pacientes com Hemorroida
-SELECT * FROM pacientes WHERE sintoma = 'Hemorróida'; -- Corrigi o nome do sintoma para Hemorroida, caso seja necessário
--- 3º Seleção: Selecionar todos os pacientes Homens
+/* 2º Seleção: Selecionar todos os pacientes com Hemorroida */
+SELECT * FROM pacientes WHERE sintoma = 'Hemorróida';
+/* 3º Seleção: Selecionar todos os pacientes Homens */
 SELECT * FROM pacientes WHERE sexo = 'M';
--- 4º Seleção: Selecionar todos os pacientes Mulheres
+/* 4º Seleção: Selecionar todos os pacientes Mulheres */
 SELECT * FROM pacientes WHERE sexo = 'F';
--- 5º Seleção: Selecionar todos os pacientes cujo nome começa com E
+/* 5º Seleção: Selecionar todos os pacientes cujo nome começa com E */
 SELECT * FROM pacientes WHERE nome_completo LIKE 'E%';
--- 6º Seleção: Selecionar todos os pacientes cujo nome termina com E
+/* 6º Seleção: Selecionar todos os pacientes cujo nome termina com E */
 SELECT * FROM pacientes WHERE nome_completo LIKE '%E';
--- 7º Seleção: Selecionar todos os pacientes cujo telefone começa com 9
+/* 7º Seleção: Selecionar todos os pacientes cujo telefone começa com 9 */
 SELECT * FROM pacientes WHERE telefone LIKE '9%';
--- 8º Seleção: Selecionar todos os pacientes cujo telefone termina com 7
+/* 8º Seleção: Selecionar todos os pacientes cujo telefone termina com 7 */
 SELECT * FROM pacientes WHERE telefone LIKE '%7';
--- 9º Seleção: Selecionar todos os pacientes que nasceram entre 1900 e 2000
+/* 9º Seleção: Selecionar todos os pacientes que nasceram entre 1900 e 2000 */
 SELECT * FROM pacientes WHERE data_nascimento BETWEEN '1900-01-01' AND '2000-12-31';
--- 10º Seleção: Selecionar todos os pacientes com Constipação
+/* 10º Seleção: Selecionar todos os pacientes com Constipação */
 SELECT * FROM pacientes WHERE sintoma = 'Constipação';
--- 11º Seleção: Selecionar todos os pacientes que nasceram no mês 7
+/* 11º Seleção: Selecionar todos os pacientes que nasceram no mês 7 */
 SELECT * FROM pacientes WHERE MONTH(data_nascimento) = 7;
--- 12º Seleção: Selecionar todos os pacientes com sobrenome Docente
+/* 12º Seleção: Selecionar todos os pacientes com sobrenome Docente */
 SELECT * FROM pacientes WHERE nome_completo LIKE '%Docente';
+
+/* 20 Atualizações (updates) */
+/* 1º Update: Alterar o sintoma do paciente João Silva */ 
+UPDATE pacientes SET sintoma = 'Febre alta' WHERE nome_completo = 'João Silva';
+/* 2º Update: Alterar o nome do paciente Mariana Castro */ 
+UPDATE pacientes SET nome_completo = 'Mariana Cardoso' WHERE nome_completo = 'Mariana Castro';
+/* 3º Update: Alterar o email do paciente MAriana Cardoso */ 
+UPDATE pacientes SET email = 'mariana.cardoso.novo@gmail.com' WHERE nome_completo = 'Mariana Cardoso';
+/* 4º Update: Alterar o sintoma do paciente Marcelo Docente */ 
+UPDATE pacientes SET sintoma = 'Fadiga' WHERE nome_completo = 'Marcelo Docente';
+/* 5º Update: Alterar o sintoma do paciente Eduardo Docente */ 
+UPDATE pacientes SET sintoma = 'Vômito' WHERE nome_completo = 'Eduardo Docente';
+/* 6º Update: Alterar o sintoma de Beatriz Almeida */
+UPDATE pacientes SET sintoma = 'Tosse seca' WHERE nome_completo = 'Beatriz Almeida';
+/* 7º Update: Alterar o nome de Lucas Rocha para Lucas Almeida */
+UPDATE pacientes SET nome_completo = 'Lucas Almeida' WHERE nome_completo = 'Lucas Rocha';
+/* 8º Update: Alterar o telefone de Mariana Souza */
+UPDATE pacientes SET telefone = '312953496772' WHERE nome_completo = 'Mariana Souza';
+/* 9º Update: Alterar o sintoma de Pedro Barros */
+UPDATE pacientes SET sintoma = 'Dor de estômago' WHERE nome_completo = 'Pedro Barros';
+/* 10º Update: Alterar o telefone de Juliana Dias */
+UPDATE pacientes SET telefone = '229276553213' WHERE nome_completo = 'Juliana Dias';
+/* 11º Update: Alterar o sintoma de Roberto Nunes */
+UPDATE pacientes SET sintoma = 'Sinusite' WHERE nome_completo = 'Roberto Nunes';
+/* 12º Update: Alterar o nome de Gabriela Mendes para Gabriela Oliveira */
+UPDATE pacientes SET nome_completo = 'Gabriela Oliveira' WHERE nome_completo = 'Gabriela Mendes';
+/* 13º Update: Alterar o sintoma de Rafael Martins */
+UPDATE pacientes SET sintoma = 'Dificuldade para dormir de lado' WHERE nome_completo = 'Rafael Martins';
+/* 14º Update: Alterar o email de Luiza Pereira */
+UPDATE pacientes SET email = 'luiza.pereira.novo@gmail.com' WHERE nome_completo = 'Luiza Pereira';
+/* 15º Update: Alterar o telefone de Thiago Teixeira */
+UPDATE pacientes SET telefone = '339561846392' WHERE nome_completo = 'Thiago Teixeira';
+/* 16º Update: Alterar o sintoma de Patrícia Fernandes */
+UPDATE pacientes SET sintoma = 'Inflamação na unha esquerda' WHERE nome_completo = 'Patrícia Fernandes';
+/* 17º Update: Alterar o nome de Mateus Gonçalves para Mateus Silva */
+UPDATE pacientes SET nome_completo = 'Mateus Silva' WHERE nome_completo = 'Mateus Gonçalves';
+/* 18º Update: Alterar o telefone de Aline Ribeiro */
+UPDATE pacientes SET telefone = '415917402747' WHERE nome_completo = 'Aline Ribeiro';
+/* 19º Update: Alterar o sintoma de Eduardo Moraes */
+UPDATE pacientes SET sintoma = 'Dor muscular' WHERE nome_completo = 'Eduardo Moraes';
+/* 20º Update: Alterar o email de Natália Araújo */
+UPDATE pacientes SET email = 'natalia.araujo.novo@gmail.com' WHERE nome_completo = 'Natália Araújo';
