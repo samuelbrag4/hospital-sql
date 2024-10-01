@@ -124,3 +124,42 @@ DELETE FROM pacientes WHERE sexo = 'F' AND (sintoma IS NULL OR sintoma = '');
 DELETE FROM pacientes WHERE sexo = 'M' AND sintoma = 'Gastrointerite'
 
 
+
+-- 12 FUNÇÕES
+-- 1. Soma das idades dos pacientes
+SELECT SUM(COALESCE(YEAR(CURDATE()) - YEAR(data_nascimento), 0)) AS soma_idades FROM pacientes;
+
+-- 2. Média das idades dos pacientes
+SELECT AVG(DATEDIFF(CURDATE(), data_nascimento) / 365) AS media_idade FROM pacientes;
+
+-- 3. Contagem total de pacientes
+SELECT COUNT(*) AS total_pacientes FROM pacientes;
+
+-- 4. Data de nascimento mais recente
+SELECT MAX(data_nascimento) AS data_nascimento_mais_recente FROM pacientes;
+
+-- 5. Data de nascimento mais antiga
+SELECT MIN(data_nascimento) AS data_nascimento_mais_antiga FROM pacientes;
+
+-- 6. Total de pacientes por sexo
+SELECT sexo, COUNT(*) AS total_por_sexo FROM pacientes GROUP BY sexo;
+
+-- 7. Filtrar grupos com mais de 10 pacientes
+SELECT sexo, COUNT(*) AS total_por_sexo FROM pacientes GROUP BY sexo HAVING total_por_sexo > 10;
+
+-- 8. Valores distintos de sexo
+SELECT DISTINCT sexo FROM pacientes;
+
+-- 9. Telefone, substituindo valores nulos
+SELECT COALESCE(telefone, 'Não informado') AS telefone_final FROM pacientes;
+
+-- 10. Média de idade arredondada
+SELECT ROUND(AVG(DATEDIFF(CURDATE(), data_nascimento) / 365), 2) AS media_idade_rounded FROM pacientes;
+
+-- 11. Comprimento médio dos nomes
+SELECT AVG(LENGTH(nome_completo)) AS comprimento_medio_nome FROM pacientes;
+
+-- 12. Data de nascimento formatada
+SELECT DATE_FORMAT(data_nascimento, '%d/%m/%Y') AS data_nascimento_formatada FROM pacientes;
+
+
