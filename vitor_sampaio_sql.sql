@@ -208,3 +208,43 @@ SELECT * FROM pacientes WHERE paciente_id = 11;
 DELETE FROM pacientes WHERE paciente_id = 12;
 SELECT * FROM pacientes WHERE paciente_id = 12;
 
+
+-- Consultar utilizando Funções
+
+-- 1. Contar o número total de pacientes
+SELECT COUNT(*) AS total_pacientes FROM pacientes;
+
+-- 2. Encontrar a média de idade dos pacientes
+SELECT AVG(EXTRACT(YEAR FROM AGE(data_nascimento))) AS media_idade FROM pacientes;
+
+-- 3. Contar o número de pacientes do sexo masculino
+SELECT COUNT(*) AS total_masculino FROM pacientes WHERE sexo = 'M';
+
+-- 4. Contar o número de pacientes do sexo feminino
+SELECT COUNT(*) AS total_feminino FROM pacientes WHERE sexo = 'F';
+
+-- 5. Listar o sintoma mais frequente
+SELECT sintoma, COUNT(*) AS frequencia FROM pacientes GROUP BY sintoma ORDER BY frequencia DESC LIMIT 1;
+
+-- 6. Encontrar a data de nascimento mais recente
+SELECT MAX(data_nascimento) AS data_nascimento_recente FROM pacientes;
+
+-- 7. Encontrar a data de nascimento mais antiga
+SELECT MIN(data_nascimento) AS data_nascimento_antiga FROM pacientes;
+
+-- 8. Contar quantos pacientes têm sintomas diferentes
+SELECT COUNT(DISTINCT sintoma) AS total_sintomas_distintos FROM pacientes;
+
+-- 9. Somar o número de pacientes por ano de nascimento
+SELECT EXTRACT(YEAR FROM data_nascimento) AS ano_nascimento, COUNT(*) AS total_pacientes
+FROM pacientes GROUP BY ano_nascimento ORDER BY ano_nascimento;
+
+-- 10. Calcular a média de pacientes por sintoma
+SELECT sintoma, COUNT(*) AS total, COUNT(*) / (SELECT COUNT(*) FROM pacientes) AS media_por_sintoma FROM pacientes GROUP BY sintoma;
+
+-- 11. Contar quantos pacientes têm e-mail
+SELECT COUNT(*) AS total_com_email FROM pacientes WHERE email IS NOT NULL;
+
+-- 12. Encontrar o número total de pacientes com cada sintoma
+SELECT sintoma, COUNT(*) AS total_por_sintoma FROM pacientes GROUP BY sintoma;
+
