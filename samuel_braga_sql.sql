@@ -9,12 +9,12 @@ INSERT INTO pacientes (nome_completo, data_nascimento, email, telefone, sexo, si
 ('Vitor Sampaio', '1993-03-14', 'vitor.sampaio@gmail.com', '71987654321', 'M', 'Falta de ar'),
 ('Mariana Souza', '1997-09-09', 'mariana.souza@gmail.com', '81987654321', 'F', 'Dor abdominal'),
 ('Pedro Barros', '1985-01-30', 'pedro.barros@gmail.com', '91987654321', 'M', 'Enjoo e tontura'),
-('Jossoares Panela', '2000-06-06', 'jossoares.panela@gmail.com', '11981234567', 'Outro', 'Insônia'),
+('Jossoares Panela', '2000-06-06', 'jossoares.panela@gmail.com', '11981234567', 'M', 'Insônia'),
 ('Roberto Nunes', '1983-08-15', 'roberto.nunes@gmail.com', '21981234567', 'M', 'Fadiga'),
 ('Gabriela Mendes', '1992-10-20', 'gabriela.mendes@gmail.com', '31981234567', 'F', 'Ansiedade'),
 ('Marcelo Docente', '1994-12-04', 'marcelo.docente@gmail.com', '41981234567', 'M', 'Perda de apetite'),
 ('Luiza Pereira', '1998-01-11', 'luiza.pereira@gmail.com', '51981234567', 'F', 'Infecção urinária'),
-('Thiago Teixeira', '1991-02-29', 'thiago.teixeira@gmail.com', '61981234567', 'M', 'Erupções cutâneas'),
+('Thiago Teixeira', '1991-02-20', 'thiago.teixeira@gmail.com', '61981234567', 'M', 'Erupções cutâneas'),
 ('Patrícia Fernandes', '1987-04-18', 'patricia.fernandes@gmail.com', '71981234567', 'F', 'Inflamação na garganta'),
 ('Bruno Quintino', '1984-09-25', 'mateus.goncalves@gmail.com', '81981234567', 'M', 'Perda de paladar'),
 ('Aline Ribeiro', '1986-03-12', 'aline.ribeiro@gmail.com', '91981234567', 'F', 'Palpitações cardíacas'),
@@ -63,7 +63,7 @@ SELECT * FROM pacientes WHERE data_nascimento BETWEEN '1900-01-01' AND '2000-12-
 /* 10º Seleção: Selecionar todos os pacientes com Constipação */
 SELECT * FROM pacientes WHERE sintoma = 'Constipação';
 /* 11º Seleção: Selecionar todos os pacientes que nasceram no mês 7 */
-SELECT * FROM pacientes WHERE MONTH(data_nascimento) = 7;
+SELECT * FROM pacientes WHERE MONTH(data_nascimento) = 07;
 /* 12º Seleção: Selecionar todos os pacientes com sobrenome Docente */
 SELECT * FROM pacientes WHERE nome_completo LIKE '%Docente';
 
@@ -134,3 +134,17 @@ DELETE FROM pacientes WHERE nome_completo LIKE 'L%' AND telefone LIKE '%9';
 DELETE FROM pacientes WHERE nome_completo LIKE 'M%' AND telefone LIKE '8%';
 /* 12º Exclusão: Excluir pacientes com nome 'Paula Vasconcelos' ou 'Roberto Nunes' */
 DELETE FROM pacientes WHERE nome_completo = 'Paula Vasconcelos' OR nome_completo = 'Roberto Nunes';
+
+/* 60 funções (como SUM(), AVG(), COUNT(), entre outras) */
+SELECT COUNT(*) AS total_pacientes FROM pacientes;
+SELECT MAX(data_nascimento) AS paciente_mais_novo FROM pacientes;
+SELECT MIN(data_nascimento) AS paciente_mais_velho FROM pacientes;
+SELECT AVG(EXTRACT(YEAR FROM AGE(NOW(), data_nascimento))) AS idade_media FROM pacientes;
+SELECT SUM(EXTRACT(YEAR FROM AGE(NOW(), data_nascimento))) AS soma_idade FROM pacientes;
+SELECT nome_completo, LENGTH(nome_completo) AS comprimento_nome FROM pacientes;
+SELECT nome_completo, SUBSTRING(nome_completo, 1, 3) AS inicio_nome FROM pacientes;
+SELECT COUNT(*) AS total_homens FROM pacientes WHERE sexo = 'M';
+SELECT COUNT(*) AS total_mulheres FROM pacientes WHERE sexo = 'F';
+SELECT UPPER(nome_completo) AS nome_maiusculo FROM pacientes;
+SELECT nome_completo, EXTRACT(YEAR FROM data_nascimento) AS ano_nascimento FROM pacientes;
+SELECT COUNT(*) AS total_silvas FROM pacientes WHERE nome_completo LIKE '%Silva%';
