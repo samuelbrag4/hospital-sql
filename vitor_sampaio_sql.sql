@@ -33,8 +33,9 @@ INSERT INTO pacientes (nome_completo, data_nascimento, email, telefone, sexo, si
 ('Bruno Teixeira', '1986-07-25', 'bruno.teixeira@email.com', '16999887766', 'M', 'Alterações de sono'),
 ('Claudia Rocha', '1991-10-04', 'claudia.rocha@email.com', '26999887766', 'F', 'Sensibilidade à luz'),
 ('Gabriel Silva', '1988-09-12', 'gabriel.silva@email.com', '36999887766', 'M', 'Dores de cabeça frequentes'),
-('Tatiane Ferreira', '1993-01-16', 'tatiane.ferreira@email.com', '46999887766', 'F', 'Episódios de ansiedade'),
+('Bruno Quintino', '1993-01-16', 'bruno.quintino@email.com', '46999887766', 'F', 'Caganeira excessiva'),
 ('Pedro Santos', '1984-02-27', 'pedro.santos@email.com', '56999887766', 'M', 'Inchaço abdominal'),
 ('Larissa Almeida', '1996-12-09', 'larissa.almeida@email.com', '66999887766', 'F', 'Dificuldade para dormir');
+
 
 
