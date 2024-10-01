@@ -8,7 +8,7 @@ INSERT INTO pacientes (nome_completo, data_nascimento, email, telefone, sexo, si
 ('Sabrina Costa', '1992-10-05', 'sabrina.costa@email.com', '61999887766', 'F', 'Dor na garganta'),
 ('Gustavo Nascimento', '1983-05-30', 'gustavo.nascimento@email.com', '71999887766', 'M', 'Dor de ouvido'),
 ('Jessica Almeida', '1989-04-20', 'jessica.almeida@email.com', '81999887766', 'F', 'Dificuldade auditiva'),
-('Eduardo Lima', '1981-08-15', 'eduardo.lima@email.com', '91999887766', 'M', 'Ardor ao urinar'),
+('Eduardo Lima', '1981-08-15', 'eduardo.lima@email.com', '91999887766', 'M', 'dor ao urinar'),
 ('Raquel Teixeira', '1996-02-12', 'raquel.teixeira@email.com', '02999887766', 'F', 'Cãibras'),
 ('Thiago Ferreira', '1985-01-07', 'thiago.ferreira@email.com', '13999887766', 'M', 'Problemas respiratórios'),
 ('Mariana Santos', '1990-06-27', 'mariana.santos@email.com', '23999887766', 'F', 'Coceira no corpo'),
@@ -161,52 +161,52 @@ SELECT * FROM pacientes WHERE paciente_id = 20;
 -- Delertar os dados e Consultar os dados
 
 -- 1. Excluir o paciente com ID 1
-DELETE FROM pacientes WHERE paciente_id = 1;
-SELECT * FROM pacientes WHERE paciente_id = 1;
+DELETE FROM pacientes WHERE nome_completo = 'Renato Alves';
+SELECT * FROM pacientes WHERE nome_completo = 'Renato Alves';
 
 -- 2. Excluir o paciente com ID 2
-DELETE FROM pacientes WHERE paciente_id = 2;
-SELECT * FROM pacientes WHERE paciente_id = 2;
+DELETE FROM pacientes WHERE telefone = '73999887766';
+SELECT * FROM pacientes WHERE telefone = '73999887766';
 
 -- 3. Excluir o paciente com ID 3
-DELETE FROM pacientes WHERE paciente_id = 3;
-SELECT * FROM pacientes WHERE paciente_id = 3;
+DELETE FROM pacientes WHERE simtoma = 'Sensibilidade à luz';
+SELECT * FROM pacientes WHERE sintoma = 'Sensibilidade à luz';
 
 -- 4. Excluir o paciente com ID 4
-DELETE FROM pacientes WHERE paciente_id = 4;
-SELECT * FROM pacientes WHERE paciente_id = 4;
+DELETE FROM pacientes WHERE data_nascimento = '1990-04-22';
+SELECT * FROM pacientes WHERE data_nascimento = '1990-04-22';
 
 -- 5. Excluir o paciente com ID 5
-DELETE FROM pacientes WHERE paciente_id = 5;
-SELECT * FROM pacientes WHERE paciente_id = 5;
+DELETE FROM pacientes WHERE email = 'diego.nascimento@email.com';
+SELECT * FROM pacientes WHERE email = 'diego.nascimento@email.com';
 
 -- 6. Excluir o paciente com ID 6
-DELETE FROM pacientes WHERE paciente_id = 6;
-SELECT * FROM pacientes WHERE paciente_id = 6;
+DELETE FROM pacientes WHERE telefne = '51999887766';
+SELECT * FROM pacientes WHERE telefone = '51999887766';
 
 -- 7. Excluir o paciente com ID 7
-DELETE FROM pacientes WHERE paciente_id = 7;
-SELECT * FROM pacientes WHERE paciente_id = 7;
+DELETE FROM pacientes WHERE email = 'bruno.teixeira@email.com';
+SELECT * FROM pacientes WHERE email = 'bruno.teixeira@email.com';
 
 -- 8. Excluir o paciente com ID 8
-DELETE FROM pacientes WHERE paciente_id = 8;
-SELECT * FROM pacientes WHERE paciente_id = 8;
+DELETE FROM pacientes WHERE paciente_id = '20';
+SELECT * FROM pacientes WHERE paciente_id = '20';
 
 -- 9. Excluir o paciente com ID 9
-DELETE FROM pacientes WHERE paciente_id = 9;
-SELECT * FROM pacientes WHERE paciente_id = 9;
+DELETE FROM pacientes WHERE nome_completo = 'Jessica Almeida';
+SELECT * FROM pacientes WHERE nome_completo = 'Jessica Almeida';
 
 -- 10. Excluir o paciente com ID 10
-DELETE FROM pacientes WHERE paciente_id = 10;
-SELECT * FROM pacientes WHERE paciente_id = 10;
+DELETE FROM pacientes WHERE sintoma = 'dor ao urinar';
+SELECT * FROM pacientes WHERE sintoma = 'dor ao urinar';
 
 -- 11. Excluir o paciente com ID 11
-DELETE FROM pacientes WHERE paciente_id = 11;
-SELECT * FROM pacientes WHERE paciente_id = 11;
+DELETE FROM pacientes WHERE nome_completo = 'Camila Pereira';
+SELECT * FROM pacientes WHERE nome_completo = 'Camila Pereira';
 
 -- 12. Excluir o paciente com ID 12
-DELETE FROM pacientes WHERE paciente_id = 12;
-SELECT * FROM pacientes WHERE paciente_id = 12;
+DELETE FROM pacientes WHERE nome_completo = 'Tatiane Ferreira';
+SELECT * FROM pacientes WHERE nome_completo = 'Tatiane Ferreira';
 
 
 -- Consultar utilizando Funções
