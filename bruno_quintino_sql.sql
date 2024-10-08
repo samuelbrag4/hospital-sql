@@ -33,33 +33,128 @@ INSERT INTO pacientes (nome_completo, data_nascimento, email, telefone, sexo, si
 ('Nicolas Lima', '1982-02-20', 'nicolas.lima@email.com', '11954321095', 'M', 'Dor no joelho'),
 ('Priscila Pires', '1990-11-30', 'priscila.pires@email.com', '11923456782', 'F', 'Cãibras'),
 ('Rodrigo Almeida', '1989-03-09', 'rodrigo.almeida@email.com', '11987654328', 'M', 'Sensação de desmaio'),
-('Tatiane Ferreira', '1993-12-05', 'tatiane.ferreira@email.com', '11965432106', 'F', 'Dor na cabeça'),
+('Filipe Ferreira', '1993-12-05', 'filipe.ferreira@email.com', '11965432106', 'M', 'Dor na cabeça'),
 ('Samuel Santos', '1984-07-15', 'samuel.santos@email.com', '11976543215', 'M', 'Inchaço'),
-('Tânia Gomes', '1996-04-04', 'tania.gomes@email.com', '11954321094', 'F', 'Falta de apetite');
+('Zaque Gomes', '2000-04-04', 'zaque.gomes@email.com', '11954321094', 'M', 'Falta de apetite');
 
 
-SELECT nome_completo, sintoma FROM pacientes;
 
-SELECT * FROM pacientes;
+SELECT * FROM pacientes WHERE sintomas = 'Dor de cabeça';
 
 SELECT * FROM pacientes WHERE sexo = 'F';
 
-SELECT * FROM pacientes WHERE sintoma = 'Dor abdominal';
+SELECT * FROM pacientes WHERE nome_completo LIKE 'Carvalho';
 
 SELECT * FROM pacientes WHERE data_nascimento BETWEEN '1990-01-01' AND '1990-12-31';
 
-SELECT nome_completo, email FROM pacientes;
+SELECT nome_completo, email FROM pacientes = 'ana.silva@email.com';
 
 SELECT * FROM pacientes WHERE telefone LIKE '19988237390';
 
 SELECT * FROM pacientes WHERE sintoma = 'Febre';
 
-SELECT * FROM pacientes WHERE EXTRACT(MONTH FROM data_nascimento) = 6;
+SELECT * FROM pacientes WHERE EXTRACT(MONTH FROM data_nascimento) = '06';
 
 SELECT * FROM pacientes ORDER BY data_nascimento DESC;
 
 SELECT * FROM pacientes WHERE sexo = 'M' AND sintoma = 'Alergia';
 
-SELECT * FROM pacientes WHERE nome_completo LIKE 'A%';
+SELECT * FROM pacientes WHERE nome_completo LIKE 'Ana Silva';
 
-SELECT * FROM pacientes WHERE sintoma NOT LIKE '%dor%';
+SELECT * FROM pacientes WHERE sintoma NOT LIKE 'dor';
+
+
+
+UPDATE pacientes SET sintoma = 'Febre alta' WHERE nome_completo = 'João Silva';
+
+UPDATE pacientes SET nome_completo = 'Mariana Cardoso' WHERE nome_completo = 'Mariana Castro';
+
+UPDATE pacientes SET email = 'mariana.cardoso.novo@gmail.com' WHERE nome_completo = 'Mariana Cardoso';
+
+UPDATE pacientes SET sintoma = 'Fadiga' WHERE nome_completo = 'Marcelo Docente';
+
+UPDATE pacientes SET sintoma = 'Vômito' WHERE nome_completo = 'Eduardo Docente';
+
+UPDATE pacientes SET sintoma = 'Tosse seca' WHERE nome_completo = 'Beatriz Almeida';
+
+UPDATE pacientes SET nome_completo = 'Lucas Almeida' WHERE nome_completo = 'Lucas Rocha';
+
+UPDATE pacientes SET telefone = '312953496772' WHERE nome_completo = 'Mariana Souza';
+
+UPDATE pacientes SET sintoma = 'Dor de estômago' WHERE nome_completo = 'Pedro Barros';
+
+UPDATE pacientes SET telefone = '229276553213' WHERE nome_completo = 'Juliana Dias';
+
+UPDATE pacientes SET sintoma = 'Sinusite' WHERE nome_completo = 'Roberto Nunes';
+
+UPDATE pacientes SET nome_completo = 'Gabriela Oliveira' WHERE nome_completo = 'Gabriela Mendes';
+
+UPDATE pacientes SET sintoma = 'Dificuldade para dormir de lado' WHERE nome_completo = 'Rafael Martins';
+
+UPDATE pacientes SET email = 'luiza.pereira.novo@gmail.com' WHERE nome_completo = 'Luiza Pereira';
+
+UPDATE pacientes SET telefone = '339561846392' WHERE nome_completo = 'Thiago Teixeira';
+
+UPDATE pacientes SET sintoma = 'Inflamação na unha esquerda' WHERE nome_completo = 'Patrícia Fernandes';
+
+UPDATE pacientes SET nome_completo = 'Mateus Silva' WHERE nome_completo = 'Mateus Gonçalves';
+
+UPDATE pacientes SET telefone = '415917402747' WHERE nome_completo = 'Aline Ribeiro';
+
+UPDATE pacientes SET sintoma = 'Dor muscular' WHERE nome_completo = 'Eduardo Moraes';
+
+UPDATE pacientes SET email = 'natalia.araujo.novo@gmail.com' WHERE nome_completo = 'Natália Araújo';
+
+
+
+DELETE FROM pacientes WHERE nome = 'Ana Silva';
+
+DELETE FROM pacientes WHERE sexo = 'Feminino';
+
+DELETE FROM pacientes WHERE data_nascimento < '1985-04-12';
+
+DELETE FROM pacientes WHERE sintoma = 'Dor de cabeça';
+
+DELETE FROM pacientes WHERE email = 'joao.pereira@email.com';
+
+DELETE FROM pacientes WHERE sintoma LIKE 'febre';
+
+DELETE FROM pacientes WHERE nome LIKE '%z';
+
+DELETE FROM pacientes WHERE AGE(CURRENT_DATE, data_nascimento) < 28;
+
+DELETE FROM pacientes WHERE sintoma = 'Ansiedade';
+
+DELETE FROM pacientes WHERE telefone IS NULL OR telefone = '%9';
+
+DELETE FROM pacientes WHERE id = 5;
+
+DELETE FROM pacientes WHERE sintoma = 'Fadiga';
+
+
+
+
+
+SELECT COUNT(*) AS total_pacientes FROM pacientes;
+
+SELECT * FROM pacientes ORDER BY data_nascimento ASC LIMIT 1;
+
+SELECT AVG(YEAR(CURDATE()) - YEAR(data_nascimento)) AS media_idade FROM pacientes;
+
+SELECT sintoma, COUNT(*) AS quantidade FROM pacientes GROUP BY sintoma;
+
+SELECT sintoma FROM pacientes GROUP BY sintoma ORDER BY COUNT(*) DESC LIMIT 1;
+
+SELECT COALESCE(telefone, 'Não informado') AS telefone_final FROM pacientes;
+
+SELECT sexo, COUNT(*) AS quantidade FROM pacientes GROUP BY sexo;
+
+SELECT * FROM pacientes WHERE nome LIKE '%a%';
+
+SELECT nome FROM pacientes WHERE sintoma IN ('Dor de cabeça', 'Febre') GROUP BY nome HAVING COUNT(sintoma) > 1;
+
+SELECT DISTINCT email FROM pacientes;
+
+SELECT * FROM pacientes WHERE MONTH(data_nascimento) = 1;
+
+SELECT COUNT(*) AS total_cansados FROM pacientes WHERE sintoma = 'Cansaço';
