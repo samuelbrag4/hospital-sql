@@ -175,3 +175,59 @@ DELETE FROM pacientes WHERE data_nascimento = '2008-03-17';
 
 /* 12° Deletar paciente pelo email*/
 DELETE FROM pacientes WHERE email = 'eduardo.silva@gmail.com';
+
+/*12 FUNÇÕES*/
+/*1° Encontrar o maior email */
+SELECT MAX(email) AS maior_email
+FROM pacientes;
+
+/*2° Contar o número de pacientes que têm telefone começando com 95 */
+SELECT COUNT(*) AS total_telefone_95 
+FROM pacientes 
+WHERE telefone LIKE '95%';
+
+/*3° Encontrar o maior telefone */
+SELECT MAX(telefone) AS maior_telefone 
+FROM pacientes;
+
+/*4° Encontrar o menor telefone*/
+SELECT MIN(telefone) AS menor_telefone 
+FROM pacientes;
+
+/*5° Contar o número de pacientes que possuem sintomas que contem 'Dor' */
+SELECT COUNT(*) AS total_sintomas_Dor 
+FROM pacientes 
+WHERE sintoma LIKE '%Dor%';
+
+/*6° Contar o número de pacientes com sintoma 'Dor de ouvido*/
+SELECT COUNT(*) AS total_dor_ouvido 
+FROM pacientes 
+WHERE sintoma = 'Dor de ouvido';
+
+/*7° Extrair o ano de nascimento dos pacientes */
+SELECT nome, EXTRACT(YEAR FROM data_nascimento) AS ano_nascimento 
+FROM pacientes;
+
+/*8° Calcular a idade dos pacientes*/
+SELECT nome_completo, AGE(CURRENT_DATE, data_nascimento) AS idade_pacientes
+FROM pacientes;
+
+/*9° Contar o número de pacientes que têm telefone começando com 61 */
+SELECT COUNT(*) AS total_telefone_61
+FROM pacientes 
+WHERE telefone LIKE '61%';
+
+/*10° Contar o os pacientes que contem "novo" no email*/
+SELECT COUNT(*) AS total_gmail
+FROM pacientes
+WHERE email LIKE '%gmail%';
+
+/*11° Calcular a media do nome dos pacientes do sexo masculino*/
+SELECT AVG(LENGTH(nome_completo)) AS media_comprimento_nome_masculino
+FROM pacientes
+WHERE sexo = 'M';
+
+/*12°* Calcular a media da idade dos pacientes que contem asma*/ 
+SELECT AVG(EXTRACT(YEAR FROM AGE(data_nascimento))) AS media_idade_asma
+FROM pacientes
+WHERE sintoma = 'Asma';
