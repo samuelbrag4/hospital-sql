@@ -43,7 +43,7 @@ INSERT INTO pacientes (nome_completo, data_nascimento, email, telefone, sexo, si
 
 /*12 SELECT*/
 /*1° Selecionar todos os pacientes com o sintoma dor de ouvido*/
-SELECT nome_completo FROM pacientes WHERE sintoma = 'Dor de ouvido';
+SELECT nome_completo, sintoma FROM pacientes WHERE sintoma = 'Dor de ouvido';
 
 /*2° Selecionar o nome_completo de todos os pacientes em ordem alfabetica*/
 SELECT nome_completo FROM pacientes ORDER BY nome_completo;
@@ -64,16 +64,77 @@ SELECT * FROM pacientes WHERE sexo = 'F' AND nome_completo LIKE 'V%';
 SELECT nome_completo, sintoma FROM pacientes WHERE sintoma = 'Perda de olfato';
 
 /*8° Selecionar os pacientes do sexo masculino que possuem "Dor" no sintoma*/
-SELECT * FROM pacientes WHERE sexo = 'M' AND sintoma LIKE '%Dor%';
+SELECT nome_completo, sintoma FROM pacientes WHERE sexo = 'M' AND sintoma LIKE '%Dor%';
 
 /*9° Selecionar os pacientes do sexo masculino que possuem a data de nascimento antes de 1989*/
-SELECT * FROM pacientes WHERE sexo = 'M' AND data_nascimento < '1989-01-01';
+SELECT nome_completo, data_nascimento FROM pacientes WHERE sexo = 'M' AND data_nascimento < '1989-01-01';
 
 /*10° Selecionar os pacientes que nasceram entre 1970 e 2000*/
-SELECT nome_completo, data_nascimento FROM pacientes WHERE data_nascimento BETWEEN '1970-01-01' AND '2000-01-01'
+SELECT nome_completo, data_nascimento, sintoma FROM pacientes WHERE data_nascimento BETWEEN '1970-01-01' AND '2000-01-01';
 
 /*11° Selecionar o nome e telefone dos pacientes em ordem crescente pela coluna telefone.*/
 SELECT nome_completo, telefone FROM pacientes ORDER BY telefone;
 
 /* 12° Selecionar os emails de pacientes com o sintoma de Infecção urinária */
-SELECT email FROM pacientes WHERE sintoma = 'Infecção urinária';
+SELECT email, sintoma FROM pacientes WHERE sintoma = 'Infecção urinária';
+
+/*20 UPDATE*/
+/* 1° Atualizar o telefone de 'Rafael Martins' */
+UPDATE pacientes SET telefone = '21991234567' WHERE nome_completo = 'Rafael Martins';
+
+/* 2° Atualizar o sintoma de 'Bruno Almeida' para 'Náusea' */
+UPDATE pacientes SET sintoma = 'Náusea' WHERE nome_completo = 'Bruno Almeida';
+
+/* 3° Atualizar o email da Beatriz Roza */
+UPDATE pacientes SET email = 'beatriz.atualizadoRoza@gmail.com' WHERE nome_completo = 'Beatriz Roza'
+
+/* 4° Atualizar o telefone do paciente do id '20' para '21985628563' */
+UPDATE pacientes SET telefone = '21999998888' WHERE paciente_id = '20' ;
+
+/* 5°  Atualizar o sintoma de 'Helena Araújo' para 'Dor abdominal' */
+UPDATE pacientes SET sintoma = 'Dor abdominal' WHERE nome_completo = 'Helena Araújo';
+
+/* 6° Atualizar o telefone de 'Daniela Freitas' */
+UPDATE pacientes SET telefone = '11986559852' WHERE nome_completo = 'Daniela Freitas';
+
+/* 7° Atualizar o sintoma de 'Vanessa Costa' para 'Tontura' */
+UPDATE pacientes SET sintoma = 'Tontura' WHERE nome_completo = 'Vanessa Costa';
+
+/* 8°  Atualizar o email da Ana Sofia */
+UPDATE pacientes SET email = 'ana.sofia02@gmail.com' WHERE nome_completo = 'Ana Sofia'
+
+/* 9° Atualizar o telefone de 'Flávia Rocha' */
+UPDATE pacientes SET telefone = '6699634784' WHERE nome_completo = 'Flávia Rocha';
+
+/* 10°Atualizando o email de Lucas Nascimento*/
+UPDATE pacientes SET email = 'lucaasnovo_nascimento@gmail.com' WHERE nome_completo = 'Lucas Nascimento'; 
+
+/* 11° Atualizando o telefone de Renato Borges*/
+UPDATE pacientes SET telefone = '21987654321' WHERE nome_completo = 'Renato Borges'; 
+
+/* 12° Atualizando o sintoma de Aline Moreira*/
+UPDATE pacientes SET sintoma = 'Cefaleia' WHERE nome_completo = 'Aline Moreira'; 
+
+/* 13° Atualizando o nome de Eduardo Fonseca para Eduardo Silva*/
+UPDATE pacientes SET nome_completo = 'Eduardo Silva' WHERE nome_completo = 'Eduardo Fonseca'; 
+
+/* 14°  Atualizando o sintoma de Arthur Oliveira*/
+UPDATE pacientes SET sintoma = 'Dor no peito' WHERE nome_completo = 'Arthur Oliveira'; 
+
+/* 15° Atualizando o email de Marina Souza*/
+UPDATE pacientes SET email = 'marina.souza@novoemail.com' WHERE nome_completo = 'Marina Souza'; 
+
+/* 16° Atualizando o telefone de Nicolle Cezar*/
+UPDATE pacientes SET telefone = '31987654321' WHERE nome_completo = 'Nicolle Cezar'; 
+
+/* 17° Atualizando o nome de Luiza Pereira para Luiza Martins*/
+UPDATE pacientes SET nome_completo = 'Luiza Martins' WHERE nome_completo = 'Luiza Pereira'; 
+
+/* 18° Atualizando o sintoma de Gabriel Souza*/
+UPDATE pacientes SET sintoma = 'Zumbido no ouvido' WHERE nome_completo = 'Gabriel Souza'; 
+
+/* 19° Atualizando o email de Mariana Fernandes*/
+UPDATE pacientes SET email = 'mariana.fernandes@novoemail.com' WHERE nome_completo = 'Mariana Fernandes'; 
+
+/* 20° Atualizando o telefone de Isabelly Lopes*/
+UPDATE pacientes SET telefone = '41987654321' WHERE nome_completo = 'Isabelly Lopes';
