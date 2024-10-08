@@ -45,6 +45,12 @@ INSERT INTO pacientes (nome_completo, data_nascimento, email, telefone, sexo, si
 ('Tânia Ferreira', '1993-09-30', 'tania.ferreira', '11990123468', 'F', 'Asma');
 
 
+
+
+
+
+
+
 -- 12 CONSULTAS SELECT
 
 -- Pacientes que têm Asma como sintoma
@@ -66,7 +72,7 @@ SELECT * FROM pacientes WHERE nome_completo LIKE '% Santos';
 SELECT * FROM pacientes WHERE nome_completo LIKE '% Ferreira';
 
 -- Pacientes que nasceram entre 1980 e 1990 
-SELECT * FROM pacientes WHERE YEAR(data_nascimento) BETWEEN 1980 AND 1990;
+SELECT * FROM pacientes WHERE EXTRACT(YEAR FROM data_nascimento) BETWEEN 1980 AND 1990;
 
 -- Pacientes cujo nome começa com 'J'
 SELECT * FROM pacientes WHERE nome_completo LIKE 'J%' 
@@ -85,7 +91,12 @@ SELECT * FROM pacientes WHERE nome_completo LIKE 'G%a';
 
 
 
+
+
+
+
 --12 DELETES
+
 
 --Deletar pacientes com idade menor que 18 anos
 DELETE FROM pacientes WHERE AGE(CURRENT_DATE, data_nascimento) < 18;
@@ -125,41 +136,167 @@ DELETE FROM pacientes WHERE sexo = 'M' AND sintoma = 'Gastrointerite'
 
 
 
+
+
+
+
 -- 12 FUNÇÕES
--- 1. Soma das idades dos pacientes
-SELECT SUM(COALESCE(YEAR(CURDATE()) - YEAR(data_nascimento), 0)) AS soma_idades FROM pacientes;
 
--- 2. Média das idades dos pacientes
-SELECT AVG(DATEDIFF(CURDATE(), data_nascimento) / 365) AS media_idade FROM pacientes;
 
--- 3. Contagem total de pacientes
-SELECT COUNT(*) AS total_pacientes FROM pacientes;
+-- 1. Somando o total de caracteres no campo de telefone
+SELECT SUM(LENGTH(telefone)) AS total_caracteres_telefone
+FROM pacientes;
 
--- 4. Data de nascimento mais recente
-SELECT MAX(data_nascimento) AS data_nascimento_mais_recente FROM pacientes;
+-- 2. Contando o número total de pacientes
+SELECT COUNT(*) AS total_pacientes
+FROM pacientes;
 
--- 5. Data de nascimento mais antiga
-SELECT MIN(data_nascimento) AS data_nascimento_mais_antiga FROM pacientes;
+-- 3. Calculando a média de idade dos pacientes
+SELECT AVG(EXTRACT(YEAR FROM AGE(data_nascimento))) AS idade_media
+FROM pacientes;
 
--- 6. Total de pacientes por sexo
-SELECT sexo, COUNT(*) AS total_por_sexo FROM pacientes GROUP BY sexo;
+-- 4. Somando o número de pacientes do sexo masculino
+SELECT COUNT(*) AS total_masculino
+FROM pacientes
+WHERE sexo = 'M';
 
--- 7. Filtrar grupos com mais de 10 pacientes
-SELECT sexo, COUNT(*) AS total_por_sexo FROM pacientes GROUP BY sexo HAVING total_por_sexo > 10;
+-- 5. Contando quantos pacientes têm sintomas de 'Asma'
+SELECT COUNT(*) AS total_asma
+FROM pacientes
+WHERE sintoma = 'Asma';
 
--- 8. Valores distintos de sexo
-SELECT DISTINCT sexo FROM pacientes;
+-- 6. Concatenando nome e e-mail de cada paciente
+SELECT CONCAT(nome_completo, ' - ', email) AS nome_email
+FROM pacientes;
 
--- 9. Telefone, substituindo valores nulos
-SELECT COALESCE(telefone, 'Não informado') AS telefone_final FROM pacientes;
+-- 7. Convertendo o nome de todos os pacientes para maiúsculas
+SELECT UPPER(nome_completo) AS nome_maiusculo
+FROM pacientes;
 
--- 10. Média de idade arredondada
-SELECT ROUND(AVG(DATEDIFF(CURDATE(), data_nascimento) / 365), 2) AS media_idade_rounded FROM pacientes;
+-- 8. Convertendo o nome de todos os pacientes para minúsculas
+SELECT LOWER(nome_completo) AS nome_minusculo
+FROM pacientes;
 
--- 11. Comprimento médio dos nomes
-SELECT AVG(LENGTH(nome_completo)) AS comprimento_medio_nome FROM pacientes;
+-- 9. Calculando a soma das idades dos pacientes
+SELECT SUM(EXTRACT(YEAR FROM AGE(data_nascimento))) AS soma_idades
+FROM pacientes;
+
+-- 10. Contando quantos pacientes têm o telefone começando com '119'
+SELECT COUNT(*) AS total_telefone_119
+FROM pacientes
+WHERE telefone LIKE '119%';
+
+-- 11. Extraindo o ano de nascimento de cada paciente
+SELECT EXTRACT(YEAR FROM data_nascimento) AS ano_nascimento
+FROM pacientes;
+
+-- 12. Calculando a média de caracteres no nome completo dos pacientes
+SELECT AVG(LENGTH(nome_completo)) AS media_comprimento_nome
+FROM pacientes;
+
+
+
+
+
+
+
+-- 20 UPDATES
+
+
+-- 1. Atualizando o sintoma para 'Hipertensão' para todos os pacientes do sexo masculino
+UPDATE pacientes
+SET sintoma = 'Hipertensão'
+WHERE sexo = 'M';
+
+-- 2. Definindo o sintoma como 'Gastrite' para pacientes nascidos após o ano 2000
+UPDATE pacientes
+SET sintoma = 'Gastrite'
+WHERE EXTRACT(YEAR FROM data_nascimento) > 2000;
+
+-- 3. Atualizando telefone para 'Desconhecido' onde está faltando
+UPDATE pacientes
+SET telefone = 'Desconhecido'
+WHERE telefone IS NULL OR telefone = '';
+
+-- 4. Definindo sexo como 'F' para todas as pacientes chamadas 'Renata'
+UPDATE pacientes
+SET sexo = 'F'
+WHERE nome_completo LIKE 'Renata%';
+
+-- 5. Definindo sintoma como 'Miopia' para pacientes com e-mail terminando em '@gmail.com'
+UPDATE pacientes
+SET sintoma = 'Miopia'
+WHERE email LIKE '%@gmail.com';
+
+-- 6. Atualizando pacientes nascidos em outubro com sintoma 'Febre'
+UPDATE pacientes
+SET sintoma = 'Febre'
+WHERE EXTRACT(MONTH FROM data_nascimento) = 10;
+
+-- 7. Definindo sexo como 'M' para pacientes com nome começando com 'Lucas'
+UPDATE pacientes
+SET sexo = 'M'
+WHERE nome_completo LIKE 'Lucas%';
+
+-- 8. Alterando sintoma para 'Artrite' para pacientes com sobrenome 'Oliveira'
+UPDATE pacientes
+SET sintoma = 'Artrite'
+WHERE nome_completo LIKE '%Oliveira%';
+
+-- 9. Atualizando pacientes com sobrenome 'Gomes' para sintoma 'Asma'
+UPDATE pacientes
+SET sintoma = 'Asma'
+WHERE nome_completo LIKE '%Gomes%';
+
+-- 10. Alterando sintoma para 'Hemorroida' para pacientes que nasceram antes de 1990
+UPDATE pacientes
+SET sintoma = 'Hemorroida'
+WHERE EXTRACT(YEAR FROM data_nascimento) < 1990;
+
+-- 11. Atualizando pacientes cujo nome começa com 'J' para sintoma 'Anemia'
+UPDATE pacientes
+SET sintoma = 'Anemia'
+WHERE nome_completo LIKE 'J%';
+
+-- 12. Atualizando todos pacientes com telefone terminando em '1234' para sintoma 'Hipertensão'
+UPDATE pacientes
+SET sintoma = 'Hipertensão'
+WHERE telefone LIKE '%1234';
+
+-- 13. Definindo o sintoma como 'Escoliose' para pacientes do sexo 'O'
+UPDATE pacientes
+SET sintoma = 'Escoliose'
+WHERE sexo = 'O';
+
+-- 14. Atualizando pacientes com nome começando com 'A' e e-mail contendo 'hotmail' para sintoma 'Gastrite'
+UPDATE pacientes
+SET sintoma = 'Gastrite'
+WHERE nome_completo LIKE 'A%' AND email LIKE '%hotmail%';
+
+-- 15. Atualizando sintoma para 'Pneumonia' para pacientes nascidos entre 1985 e 1995
+UPDATE pacientes
+SET sintoma = 'Pneumonia'
+WHERE EXTRACT(YEAR FROM data_nascimento) BETWEEN 1985 AND 1995;
+
+-- 16. Atualizando sintoma para 'Diabetes' para todos pacientes com e-mails contendo 'yahoo'
+UPDATE pacientes
+SET sintoma = 'Diabetes'
+WHERE email LIKE '%yahoo%';
+
+-- 17. Alterando sexo para 'M' onde o nome termina com 'o'
+UPDATE pacientes
+SET sexo = 'M'
+WHERE nome_completo LIKE '%o';
 
 -- 12. Data de nascimento formatada
 SELECT DATE_FORMAT(data_nascimento, '%d/%m/%Y') AS data_nascimento_formatada FROM pacientes;
 
+UPDATE pacientes
+SET sintoma = 'Febre'
+WHERE LENGTH(nome_completo) > 10;
+
+-- 20. Atualizando sintoma para 'Inflamação no Apêndice' para pacientes nascidos no verão
+UPDATE pacientes
+SET sintoma = 'Inflamação no Apêndice'
+WHERE EXTRACT(MONTH FROM data_nascimento) IN (12, 1, 2);
 
