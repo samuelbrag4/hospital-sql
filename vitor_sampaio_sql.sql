@@ -43,7 +43,7 @@ INSERT INTO pacientes (nome_completo, data_nascimento, email, telefone, sexo, si
 SELECT nome_completo, sintoma FROM pacientes;
 
 -- 2. Encontrar pacientes com sintomas que contenham 'falta'
-SELECT * FROM pacientes WHERE sintoma LIKE '%falta%';
+SELECT * FROM pacientes WHERE sintoma LIKE '%Dificuldade%';
 
 -- 3. Listar pacientes que têm telefone com 9 dígitos
 SELECT * FROM pacientes WHERE telefone LIKE '9%';
@@ -64,7 +64,7 @@ SELECT * FROM pacientes WHERE data_nascimento < '2000-01-01';
 SELECT * FROM pacientes WHERE data_nascimento >= '1993-01-01' AND data_nascimento <= '2003-12-31';
 
 -- 9. Selecionar pacientes com o sintoma 'Falta de ar'
-SELECT * FROM pacientes WHERE sintoma = 'Falta de ar';
+SELECT * FROM pacientes WHERE sintoma = 'Caganeira excessiva';
 
 -- 10. Listar pacientes com e-mail terminando em '@email.com'
 SELECT * FROM pacientes WHERE email LIKE '%@email.com';
@@ -73,7 +73,7 @@ SELECT * FROM pacientes WHERE email LIKE '%@email.com';
 SELECT * FROM pacientes WHERE telefone LIKE '21%';
 
 -- 12. Selecionar pacientes nascidos em agosto
-SELECT * FROM pacientes WHERE data_nascimento LIKE '____-08-%';
+SELECT * FROM pacientes WHERE data_nascimento = '1988-12-05';
 
 
 -- Atualizar os dados e Consutar os dados
@@ -99,7 +99,7 @@ UPDATE pacientes SET data_nascimento = '1995-12-25' WHERE paciente_id = 5;
 SELECT * FROM pacientes WHERE paciente_id = 5;
 
 -- 6. Atualizar o sexo do paciente com ID 6
-UPDATE pacientes SET sexo = 'Outro' WHERE paciente_id = 6;
+UPDATE pacientes SET sexo = 'M' WHERE paciente_id = 6;
 SELECT * FROM pacientes WHERE paciente_id = 6;
 
 -- 7. Atualizar o sintoma do paciente com ID 7
@@ -169,7 +169,7 @@ DELETE FROM pacientes WHERE telefone = '73999887766';
 SELECT * FROM pacientes WHERE telefone = '73999887766';
 
 -- 3. Excluir o paciente com ID 3
-DELETE FROM pacientes WHERE simtoma = 'Sensibilidade à luz';
+DELETE FROM pacientes WHERE sintoma = 'Sensibilidade à luz';
 SELECT * FROM pacientes WHERE sintoma = 'Sensibilidade à luz';
 
 -- 4. Excluir o paciente com ID 4
@@ -181,7 +181,7 @@ DELETE FROM pacientes WHERE email = 'diego.nascimento@email.com';
 SELECT * FROM pacientes WHERE email = 'diego.nascimento@email.com';
 
 -- 6. Excluir o paciente com ID 6
-DELETE FROM pacientes WHERE telefne = '51999887766';
+DELETE FROM pacientes WHERE telefone = '51999887766';
 SELECT * FROM pacientes WHERE telefone = '51999887766';
 
 -- 7. Excluir o paciente com ID 7
@@ -201,8 +201,8 @@ DELETE FROM pacientes WHERE sintoma = 'dor ao urinar';
 SELECT * FROM pacientes WHERE sintoma = 'dor ao urinar';
 
 -- 11. Excluir o paciente com ID 11
-DELETE FROM pacientes WHERE nome_completo = 'Camila Pereira';
-SELECT * FROM pacientes WHERE nome_completo = 'Camila Pereira';
+DELETE FROM pacientes WHERE nome_completo = 'Gabriel Silva';
+SELECT * FROM pacientes WHERE nome_completo = 'Gabriel Silva';
 
 -- 12. Excluir o paciente com ID 12
 DELETE FROM pacientes WHERE nome_completo = 'Tatiane Ferreira';
