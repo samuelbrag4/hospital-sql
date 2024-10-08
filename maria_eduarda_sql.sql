@@ -138,3 +138,40 @@ UPDATE pacientes SET email = 'mariana.fernandes@novoemail.com' WHERE nome_comple
 
 /* 20° Atualizando o telefone de Isabelly Lopes*/
 UPDATE pacientes SET telefone = '41987654321' WHERE nome_completo = 'Isabelly Lopes';
+
+/*12 DELETE*/
+/*1° Deletar paciente pelo sintoma*/
+DELETE FROM pacientes WHERE sintoma = 'Gastrite';
+
+/*2° Deletar paciente pelo id*/
+DELETE FROM pacientes WHERE paciente_id = 35;
+
+/*3° Deletar paciente pelo email*/
+DELETE FROM pacientes WHERE email = 'gabriel.souza@gmail.com';
+
+/*4° Deletar paciente pelo telefone*/
+DELETE FROM pacientes WHERE telefone = '89956789012';
+
+/* 5° Deletar paciente pelo sintoma*/
+DELETE FROM pacientes WHERE sintoma = 'Febre alta';
+
+/* 6° Deletar paciente pelo nome id*/
+DELETE FROM pacientes WHERE paciente_id = 97
+
+/* 7° Deletar paciente pelo email */
+DELETE FROM pacientes WHERE email = 'nicolle.cezar@gmail.com';
+
+/* 8° Deletar paciente pelo telefone*/
+DELETE FROM pacientes WHERE telefone = '31987654321';
+
+/* 9° Deletar paciente pela data de nascimento*/
+DELETE FROM pacientes WHERE data_nascimento = '1992-08-15';
+
+/* 10° Deletar paciente pelo sintoma 'Dor no peito' do sexo feminino*/
+DELETE FROM pacientes WHERE sintoma = 'Dor no peito' AND sexo = 'F';
+
+/* 11° Deletar paciente pela data de nascimento*/
+DELETE FROM pacientes WHERE data_nascimento = '2008-03-17';
+
+/* 12° Deletar paciente pelo email*/
+DELETE FROM pacientes WHERE email = 'eduardo.silva@gmail.com';
