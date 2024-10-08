@@ -186,12 +186,12 @@ SELECT COUNT(*) AS total_telefone_95
 FROM pacientes 
 WHERE telefone LIKE '95%';
 
-/*3° Encontrar o maior telefone */
-SELECT MAX(telefone) AS maior_telefone 
+/*3° Encontrar o maior nome*/
+SELECT MAX(nome_completo) AS maior_nome
 FROM pacientes;
 
-/*4° Encontrar o menor telefone*/
-SELECT MIN(telefone) AS menor_telefone 
+/*4° Encontrar o menor nome*/
+SELECT MIN(nome_completo) AS menor_nome 
 FROM pacientes;
 
 /*5° Contar o número de pacientes que possuem sintomas que contem 'Dor' */
