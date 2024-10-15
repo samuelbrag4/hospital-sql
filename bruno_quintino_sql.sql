@@ -36,7 +36,9 @@ INSERT INTO pacientes (nome_completo, data_nascimento, email, telefone, sexo, si
 ('Filipe Ferreira', '1993-12-05', 'filipe.ferreira@email.com', '11965432106', 'M', 'Dor na cabeça'),
 ('Samuel Santos', '1984-07-15', 'samuel.santos@email.com', '11976543215', 'M', 'Inchaço'),
 ('Zaque Gomes', '2000-04-04', 'zaque.gomes@email.com', '11954321094', 'M', 'Falta de apetite');
-
+('Matheus Zacarias', '2003-05-09', 'matheus.zacarias@gmail.com', '11954321764', 'M', 'Diarréia');
+('Pedro Souza', '2005-02-04', 'pedro.souza@gmail.com', '11349321764', 'M', 'Tuberculose');
+('Natália Maria', '2001-03-028', 'natália.maria@gmail.com', '11954962764', 'F', 'Pneumonia');
 
 
 SELECT * FROM pacientes WHERE sintomas = 'Dor de cabeça';
