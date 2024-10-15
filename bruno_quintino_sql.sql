@@ -32,10 +32,13 @@ INSERT INTO pacientes (nome_completo, data_nascimento, email, telefone, sexo, si
 ('Aline Rocha', '1997-08-08', 'aline.rocha@email.com', '11976543214', 'F', 'Dificuldade para engolir'),
 ('Nicolas Lima', '1982-02-20', 'nicolas.lima@email.com', '11954321095', 'M', 'Dor no joelho'),
 ('Priscila Pires', '1990-11-30', 'priscila.pires@email.com', '11923456782', 'F', 'Cãibras'),
-('Rodrigo Almeida', '1989-03-09', 'rodrigo.almeida@email.com', '11987654328', 'M', 'Sensação de desmaio'),
+('Rodrigo Almeida', '1989-03-02', 'rodrigo.almeida@email.com', '11987654328', 'M', 'Sensação de desmaio'),
 ('Filipe Ferreira', '1993-12-05', 'filipe.ferreira@email.com', '11965432106', 'M', 'Dor na cabeça'),
 ('Samuel Santos', '1984-07-15', 'samuel.santos@email.com', '11976543215', 'M', 'Inchaço'),
 ('Zaque Gomes', '2000-04-04', 'zaque.gomes@email.com', '11954321094', 'M', 'Falta de apetite');
+('Matheus Zacarias', '2003-05-09', 'matheus.zacarias@gmail.com', '11954321764', 'M', 'Diarréia');
+('Pedro Souza', '2005-02-04', 'pedro.souza@gmail.com', '11349321764', 'M', 'Tuberculose');
+('Natália Maria', '2001-03-028', 'natália.maria@gmail.com', '11954962764', 'F', 'Pneumonia');
 
 
 
@@ -77,11 +80,21 @@ UPDATE pacientes SET sintoma = 'Vômito' WHERE nome_completo = 'Eduardo Docente'
 
 UPDATE pacientes SET sintoma = 'Tosse seca' WHERE nome_completo = 'Beatriz Almeida';
 
-UPDATE pacientes SET nome_completo = 'Lucas Almeida' WHERE nome_completo = 'Lucas Rocha';
+UPDATE pacientes SET nome_completo =
+ 'Lucas Almeida' WHERE nome_completo =
+  'Lucas Rocha';
+
+
+
+
+
+
 
 UPDATE pacientes SET telefone = '312953496772' WHERE nome_completo = 'Mariana Souza';
 
-UPDATE pacientes SET sintoma = 'Dor de estômago' WHERE nome_completo = 'Pedro Barros';
+UPDATE pacientes SET sintoma =
+ 'Dor de estômago' WHERE nome_completo =
+  'Pedro Barros';
 
 UPDATE pacientes SET telefone = '229276553213' WHERE nome_completo = 'Juliana Dias';
 
